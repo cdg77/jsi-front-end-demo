@@ -1,7 +1,11 @@
-.hidden {
-  display: none;
+article.hidden p {
+  opacity: 0;
 }
 
-.visible {
-  display: block;
+article p {
+  opacity: 1;
+}
+
+.fancy {
+	color : red;
 }

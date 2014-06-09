@@ -20,15 +20,22 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
     articleList[indexOfOldArticle].childNodes[0]);
 };
 
+// var contains = function(str1, str2) {
+//   return String.prototype.indexOf.apply(this, str1) !== -1;
+// };
+
 var toggleArticle = function (art) {
-  var content = art.getElementsByTagName("p")[0];
-  var displayed = content.getAttribute("class");
-  // if (!displayed) {content.setAttribute("class", "visible");}
-  if (displayed === "hidden") {
-    content.setAttribute("class", "visible");
+
+  var displayed = art.getAttribute("class");
+  alert(displayed);
+  console.log(displayed);
+  if (!displayed) { displayed = ""; }
+  
+  if (displayed.indexOf("hidden") !== -1) {
+    art.setAttribute("class", displayed.replace("hidden", " "));
   }
   else {
-    content.setAttribute("class", "hidden");
+    art.setAttribute("class", displayed + " hidden");
   }
 };
 
