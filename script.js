@@ -1,28 +1,25 @@
-var parent = document.body;
 
-var nextArt = document.createElement("article");
+var addAnArticle = function (title, content) {
+  var parent = document.body;
+  var nextArt = document.createElement("article");
+  var articleList = document.getElementsByTagName("article");
+  parent.insertBefore(nextArt, articleList[0]);
+  var newTitle = document.createElement("h1");
+  newTitle.textContent = title;
+  var newPara = document.createElement("p");
+  newPara.textContent = content;
+  articleList[0].appendChild(newTitle);
+  articleList[0].appendChild(newPara);
+};
 
-var oldArticles = document.getElementsByTagName("article");
-console.log(oldArticles[0]);
+var addAnOldTitle = function (title, indexOfOldArticle) {
+  var articleList = document.getElementsByTagName("article");
+  var newTitle = document.createElement("h1");
+  newTitle.textContent = title;
+  articleList[indexOfOldArticle].insertBefore(newTitle,
+    articleList[indexOfOldArticle].childNodes[0]);
+};
 
-parent.insertBefore(nextArt, oldArticles[0]);
-console.log(oldArticles);
+addAnArticle("My Second Blog Post", "This is the second blog post that I've ever written");
+addAnOldTitle("My Very First Blog Post", 1);
 
-var newTitle = document.createElement("h1");
-
-newTitle.textContent = "My Second Blog Post";
-
-var newPara = document.createElement("p");
-
-newPara.textContent = "This is a blog post about really " +
-  "awesome stuff I've done in Javascript";
-
-oldArticles[0].appendChild(newTitle);
-
-oldArticles[0].appendChild(newPara);
-
-var oldTitle = document.createElement("h1");
-
-oldTitle.textContent = "My First Blog Post";
-
-oldArticles[1].insertBefore(oldTitle, oldArticles[1].childNodes[0]);
