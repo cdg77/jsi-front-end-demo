@@ -20,6 +20,18 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
     articleList[indexOfOldArticle].childNodes[0]);
 };
 
+var hideArticle = function () {
+  var articleList = document.getElementsByTagName("article");
+  articleArray = Array.prototype.slice.call(articleList);
+  console.log(articleArray);
+  titlesList = [];
+  articleArray.forEach(function (article) {
+    titlesList.push(article.childNodes[0]);
+  }, this);
+  console.log(titlesList[0]);
+};
+
 addAnArticle("My Second Blog Post", "This is the second blog post that I've ever written");
 addAnOldTitle("My Very First Blog Post", 1);
+hideArticle();
 
