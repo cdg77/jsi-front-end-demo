@@ -21,11 +21,12 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
 };
 
 var toggleArticle = function (art) {
-  if (art.childNodes[1].style.display === "none") {
-    art.childNodes[1].style.display = "block";
+  var content = art.getElementsByTagName("p")[0];
+  if (content.style.display === "none") {
+    content.style.display = "block";
   }
   else {
-    art.childNodes[1].style.display = "none";
+    content.style.display = "none";
   }
 };
 
@@ -33,7 +34,7 @@ var hideArticle = function () {
   var articleList = document.getElementsByTagName("article");
   var articleArray = Array.prototype.slice.call(articleList);
   console.log(articleArray);
-  articleArray.forEach(function (article, index) {
+  articleArray.forEach(function (article) {
     article.childNodes[0].addEventListener("click", function (event) {
       toggleArticle(article);
     });
