@@ -22,11 +22,13 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
 
 var toggleArticle = function (art) {
   var content = art.getElementsByTagName("p")[0];
-  if (content.style.display === "none") {
-    content.style.display = "block";
+  var displayed = content.getAttribute("class");
+  // if (!displayed) {content.setAttribute("class", "visible");}
+  if (displayed === "hidden") {
+    content.setAttribute("class", "visible");
   }
   else {
-    content.style.display = "none";
+    content.setAttribute("class", "hidden");
   }
 };
 
