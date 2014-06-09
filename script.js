@@ -20,15 +20,24 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
     articleList[indexOfOldArticle].childNodes[0]);
 };
 
+var toggleArticle = function (art) {
+  if (art.childNodes[1].style.display === "none") {
+    art.childNodes[1].style.display = "block";
+  }
+  else {
+    art.childNodes[1].style.display = "none";
+  }
+};
+
 var hideArticle = function () {
   var articleList = document.getElementsByTagName("article");
-  articleArray = Array.prototype.slice.call(articleList);
+  var articleArray = Array.prototype.slice.call(articleList);
   console.log(articleArray);
-  titlesList = [];
-  articleArray.forEach(function (article) {
-    titlesList.push(article.childNodes[0]);
+  articleArray.forEach(function (article, index) {
+    article.childNodes[0].addEventListener("click", function (event) {
+      toggleArticle(article);
+    });
   }, this);
-  console.log(titlesList[0]);
 };
 
 addAnArticle("My Second Blog Post", "This is the second blog post that I've ever written");
