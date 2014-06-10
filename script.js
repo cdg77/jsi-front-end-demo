@@ -27,10 +27,9 @@ var addAnOldTitle = function (title, indexOfOldArticle) {
 var toggleArticle = function (art) {
 
   var displayed = art.getAttribute("class");
-  alert(displayed);
-  console.log(displayed);
-  if (!displayed) { displayed = ""; }
   
+  if (!displayed) { displayed = ""; }
+
   if (displayed.indexOf("hidden") !== -1) {
     art.setAttribute("class", displayed.replace("hidden", " "));
   }
